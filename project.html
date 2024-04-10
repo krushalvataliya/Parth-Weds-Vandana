@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 <style>
-/* Colorful styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -17,44 +16,59 @@ body {
 }
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 5px;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-.banner-heading {
-    font-family: 'Great Vibes', cursive; /* Apply the chosen font */
-    text-align: center; /* Center-align the text */
-    font-size: 36px; /* Adjust font size */
-}
-.banner {
-    text-align: center;
-    padding: 50px 0 2px 0px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
+
 .banner-slider {
-    max-width: 100%;
-    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
 }
-.banner-slider img {
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 0 0 100%;
+}
+
+.slide img {
     width: 100%;
-    border-radius: 10px;
 }
-.banner h1 {
-    font-size: 28px;
-    color: #333;
-    margin-top: 20px;
-    margin-bottom: 0;
+
+.prev,
+.next {
+    position: absolute;
+    top: 17%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
 }
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
 .gallery {
     margin-top: 30px;
-	font-family: 'Great Vibes', cursive;
+	font-family: 'Great Vibes';
 }
 .gallery h2 {
     font-size: 20px;
-	font-family: 'Great Vibes', cursive;
+	font-family: 'Great Vibes';
     color: #333;
     margin-bottom: 20px;
 }
@@ -113,33 +127,40 @@ body {
 
 /* Responsive styles */
 @media only screen and (max-width: 768px) {
-    .banner h1 {
+    /*.banner h1 {
         font-size: 24px;
-    }
+    }*/
     .gallery h2 {
         font-size: 18px;
     }
     .video iframe {
-        height: 150px;
+        height: 200px;
     }
 }
 </style>
 </head>
 <body>
-
-<div class="banner">
-    <div class="banner-slider">
-        <div><img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/052A6858.JPG?raw=true" alt="Slide 1"></div>
-        <div><img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/052A6861.JPG?raw=true" alt="Slide 1"></div>
-        <div><img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/052A6881.JPG?raw=true" alt="Slide 1"></div>
-        <div><img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/052A7834.JPG?raw=true" alt="Slide 1"></div>
-        <div><img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/052A8400.JPG?raw=true" alt="Slide 1"></div>
+<div class="banner-slider">
+    <div class="slides">
+        <div class="slide photo-display1">
+            <img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/1.png?raw=true.jpg" alt="Slide 1">
+        </div>
+        <div class="slide photo-display2">
+            <img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/2.png?raw=true.jpg" alt="Slide 2">
+        </div>
+        <div class="slide photo-display3">
+            <img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/3.png?raw=true.jpg" alt="Slide 3">
+        </div>
+        <div class="slide photo-display4">
+            <img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/4.png?raw=true.jpg" alt="Slide 3">
+        </div>
     </div>
-   <h1 class="banner-heading">Parth and Vandana Wedding Gallery</h1>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
 </div>
 
 <div class="container">
-
+ <h1 class="banner-heading">Parth and Vandana Wedding Gallery</h1>	
     <div class="gallery">
         <h2>Photos</h2>
         <div class="link-container">
@@ -194,18 +215,31 @@ body {
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<script>
-// Initialize banner slider
-$(document).ready(function(){
-  $('.banner-slider').slick({
-    autoplay: true,
-    autoplaySpeed: 2000,
-    arrows: false,
-    dots: true,
-    fade: true
-  });
-});
 </script>
-
+ -->
 </body>
 </html>
+
+<script type="text/javascript">
+let slides = document.querySelectorAll('.slide');
+let slideContainer = document.querySelector('.slides');
+let currentSlide = 0;
+
+function showSlide(n) {
+    slideContainer.style.transform = `translateX(-${n * 100}%)`;
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+showSlide(currentSlide);
+
+setInterval(nextSlide, 3000);
+</script>
