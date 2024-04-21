@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 <style>
+/* Colorful styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -44,7 +45,7 @@ body {
 .prev,
 .next {
     position: absolute;
-    top: 17%;
+    top: 52%;
     transform: translateY(-50%);
     background: transparent;
     border: none;
@@ -140,6 +141,16 @@ body {
 </style>
 </head>
 <body>
+
+<!-- <div class="banner">
+    <div class="banner-slider">
+        <div><img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/1.png?raw=true" alt="Slide 1"></div>
+        <div><img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/2.png?raw=true" alt="Slide 2"></div>
+        <div><img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/3.png?raw=true" alt="Slide 3"></div>
+        <div><img src="https://github.com/krushalvataliya/Parth-Weds-Vandana/blob/main/4.png?raw=true" alt="Slide 4"></div>
+    </div>
+   <h1 class="banner-heading">Parth and Vandana Wedding Gallery</h1>
+</div> -->
 <div class="banner-slider">
     <div class="slides">
         <div class="slide photo-display1">
@@ -215,6 +226,17 @@ body {
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<!-- <script>
+// Initialize banner slider
+$(document).ready(function(){
+  $('.banner-slider').slick({
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: false,
+    dots: true,
+    fade: true
+  });
+});
 </script>
  -->
 </body>
@@ -241,5 +263,7 @@ function prevSlide() {
 
 showSlide(currentSlide);
 
-setInterval(nextSlide, 3000);
+// Automatic slideshow
+setInterval(nextSlide, 3000); // Change slide every 5 seconds
+
 </script>
